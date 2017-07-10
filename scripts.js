@@ -21,8 +21,39 @@ var sprintFunctions = {
     return str;
   },
 
-  loudSnakeCase: function(){
+  findInArray: function(index, array){
+    for (var i = 0; i < array.length; i++) {
+      if(index === array[i]) {
+        return true;
+      }
+    }
+  },
+
+  titleCase: function(string) {
+    string = string.toLowerCase().split(" ");
+    for (var i = 0; i < string.length; i++) {
+      string[i] = string[i].charAt(0).toUpperCase() + string[i].slice(1);
+    }
+    return string.join(" ");
+  },
+
+  trimExtraSpace: function(string) {
+    return string.replace(/\s+/g, " ");
+  },
+
+  loudSnakeCase: function(string){
     // your code here
+    var str = "";
+    string = this.trimExtraSpace(string);
+    string = this.titleCase(string);
+    var arr = ['.','!',',','?'];
+    for (var i = 0; i < string.length; i++) {
+      if(this.findInArray(string[i], arr)) {
+        continue;
+      }
+      str += string[i].replace(" ", "_");
+    }
+    return str;
   },
 
   compareArrays: function(){
