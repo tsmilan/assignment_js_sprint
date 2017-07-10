@@ -95,7 +95,21 @@ var sprintFunctions = {
     return arr;
   },
 
-  primes: function(){
+  primes: function(number){
     // your code here
+    var count = 0;
+    var arr = [];
+    for (var i = 1; i <= number; i++) {
+      for (var j = 1; j <= i; j++) {
+        var q = i % j;
+        if(q === 0)
+          count++;
+      }
+      if(count === 2) {
+        arr.push(i);
+      }
+      count = 0;
+     }
+    return arr;
   },
 }
