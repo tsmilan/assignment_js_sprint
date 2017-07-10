@@ -12,8 +12,13 @@ var sprintFunctions = {
     return max;
   },
 
-  reversed: function(){
+  reversed: function(string){
     // your code here
+    var str = "";
+    for (var i = string.length - 1; i >= 0; i--) {
+      str += string[i];
+    }
+    return str;
   },
 
   loudSnakeCase: function(){
